@@ -31,7 +31,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		
 		public function MyFactory()
 		{
-			trace("Create " + classToString);
+			trace("Create " + classNameToString);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 //		[Factory]
 		public function createElement():IMyElement
 		{
-			trace(classToString + " : createElement();");
+			trace(classNameToString + " : createElement();");
 			
 			_iCount++;
 			
@@ -75,7 +75,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 //		[Factory]
 		public function createAnotherElement():MyAnotherElement
 		{
-			trace(classToString + " : createAnotherElement();");
+			trace(classNameToString + " : createAnotherElement();");
 			
 			return new MyAnotherElement();
 		}
@@ -83,7 +83,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		//----------------------------------
 		//  private methods
 		//----------------------------------
-		private function get classToString():String
+		private function get classNameToString():String
 		{
 			return "[ " + getQualifiedClassName(this) + " ]";
 		}
