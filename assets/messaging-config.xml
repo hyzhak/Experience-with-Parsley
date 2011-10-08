@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects 
+    xmlns="http://www.spicefactory.org/parsley"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.spicefactory.org/parsley/schema/2.3/parsley-core.xsd"
+    >
+    
+	<object id="separate-dispatcher"	type="org.hyzhak.experiments.parsley01.messaging.dispatchers.MyMessageDispatcher">
+		<message-dispatcher property="dispatcher"/>
+<!-- 		<property name="mySecondCustomMessage" id-ref="my-event"/> -->
+	</object>
+	
+	<object id="self-dispatcher"		type="org.hyzhak.experiments.parsley01.messaging.dispatchers.MyMessageSelfDispatcher">
+		<managed-events names="myEvent"/>
+	</object>
+	<object 							type="org.hyzhak.experiments.parsley01.messaging.DispatcherContainer" />
+	
+<!-- 	<object id="my-event"				type="org.hyzhak.experiments.parsley01.messaging.events.MySecondCustomMessage"/>	 -->
+   
+	<object								type="org.hyzhak.experiments.parsley01.messaging.handlers.MyMessageHandler">	
+	    <message-handler method="onMyEvent"/> 
+	    <message-handler method="onMyCustomMessage"/> 
+	    <message-handler method="onMySecondMessage"						
+	    	type="org.hyzhak.experiments.parsley01.messaging.events.MySecondCustomMessage" 
+	    	message-properties="param1,param2"/>
+	    <message-handler 
+	    	method="onMySecondCustomMessageWithSelector"	
+	    	type="org.hyzhak.experiments.parsley01.messaging.events.MySecondCustomMessage"
+	    	selector="param2"
+	    	/>
+	    <message-binding 
+	        target-property="param" 
+	        message-property="param1"
+	        type="org.hyzhak.experiments.parsley01.messaging.events.MySecondCustomMessage"
+	    /> 
+	</object>
+	
+	
+	<object type="org.hyzhak.experiments.parsley01.messaging.commands.MyCommandResult"/>	
+	
+	<dynamic-command
+		type="org.hyzhak.experiments.parsley01.messaging.commands.MyCommand"
+		stateful="true"
+		/>
+		
+<!-- 	<dynamic-command -->
+<!-- 		message-type="org.hyzhak.experiments.parsley01.messaging.events.MyEvent" -->
+<!-- 		type="{org.hyzhak.experiments.parsley01.messaging.commands.MyCommands}"  -->
+<!-- 		selector="myType" -->
+<!-- 	    execute="saveUser" -->
+<!-- 	    result="handleUser" -->
+<!-- 	    error="handleFault"> -->
+		
+</objects>

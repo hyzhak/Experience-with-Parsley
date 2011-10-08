@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects 
+    xmlns="http://www.spicefactory.org/parsley"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.spicefactory.org/parsley/schema/2.3/parsley-core.xsd"
+    >
+    <object id="element-factory"			type="org.hyzhak.experiments.parsley01.lifecycle.MyFactory">
+    	<factory method="createElement"/>  
+    </object>
+    <object id="another-element-factory"	type="org.hyzhak.experiments.parsley01.lifecycle.MyFactory">
+    	<factory method="createAnotherElement"/> 
+    </object>
+    <object id="user"		type="org.hyzhak.experiments.parsley01.lifecycle.MyUser"/>
+<!--     <object 				type="org.hyzhak.experiments.parsley01.lifecycle.MyElement"/> -->
+<!--     <object 				type="org.hyzhak.experiments.parsley01.lifecycle.MyAnotherElement"/> -->
+</objects>

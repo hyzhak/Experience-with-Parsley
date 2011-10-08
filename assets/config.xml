@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects 
+    xmlns="http://www.spicefactory.org/parsley"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.spicefactory.org/parsley/schema/2.3/parsley-core.xsd"
+    >
+    
+	<object	id="first"				type="org.hyzhak.experiments.parsley01.items.InjectionItem1">
+		<constructor-args>
+<!--             <object-ref id-ref="userManager"/> -->
+            <string>http://www.bookstore.com/services/</string>
+<!--     		<uint>3000</uint> -->
+        </constructor-args>
+		<property name="timeout" 	value="3000"/>		
+<!-- 		<property name="timeout" 	id-ref="loginService"/> -->
+	</object>
+	
+   <object	id="second"				type="org.hyzhak.experiments.parsley01.items.InjectionItem2"	lazy="true"	singleton="false"/>
+   
+   <object	id="root"				type="org.hyzhak.experiments.parsley01.containers.InjectionContainer"/>
+   <object	id="sub"				type="org.hyzhak.experiments.parsley01.containers.InjectionSubContainer"/>
+</objects>
