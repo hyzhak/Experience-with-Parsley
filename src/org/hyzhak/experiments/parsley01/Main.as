@@ -18,6 +18,7 @@ package org.hyzhak.experiments.parsley01
 	import org.hyzhak.experiments.parsley01.messaging.dispatchers.MyMessageDispatcher;
 	import org.hyzhak.experiments.parsley01.messaging.dispatchers.MyMessageSelfDispatcher;
 	import org.hyzhak.experiments.parsley01.messaging.handlers.MyMessageHandler;
+	import org.hyzhak.experiments.parsley01.utils.MyBaseLogger;
 	import org.spicefactory.parsley.asconfig.ActionScriptContextBuilder;
 	import org.spicefactory.parsley.core.context.Context;
 	import org.spicefactory.parsley.core.events.ContextEvent;
@@ -111,6 +112,9 @@ package org.hyzhak.experiments.parsley01
 			//lifecycle
 			MyFactory;
 			MyUser;
+			
+			//my logger
+			MyBaseLogger;
 			
 			//			var myDispatcher:MyMessageDispatcher = new MyMessageDispatcher();
 			//			myDispatcher.testDispatch();

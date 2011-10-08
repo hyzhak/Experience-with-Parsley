@@ -1,7 +1,10 @@
 package org.hyzhak.experiments.parsley01.lifecycle
 {
 	import flash.utils.getQualifiedClassName;
+	
 	import org.hyzhak.experiments.parsley01.lifecycle.elements.MyElement;
+	import org.hyzhak.experiments.parsley01.utils.IMyLogger;
+	import org.hyzhak.experiments.parsley01.utils.MyBaseLogger;
 	
 	/**
 	 * Example for "7.2 Using Factories" http://www.spicefactory.org/parsley/docs/2.4/manual/lifecycle.php#factories
@@ -25,13 +28,15 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		//  params 
 		//----------------------------------
 		private var _iCount:int = 0;
+		
+		private var _logger:IMyLogger = MyBaseLogger.getLogger();
 		//----------------------------------
 		//  constructor 
 		//----------------------------------
 		
 		public function MyFactory()
 		{
-			trace("Create " + classNameToString);
+			_logger.logCreateClass(this);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -59,15 +64,15 @@ package org.hyzhak.experiments.parsley01.lifecycle
 //		[Factory]
 		public function createElement():IMyElement
 		{
-			trace(classNameToString + " : createElement();");
+			_logger.log(this, "createElement();");
 			
 			_iCount++;
 			
 			var element:MyElement = new MyElement();
 			element.value = "(C) created by my factory. times = " + _iCount.toString();
 			
-			trace("element = "+element);
-			trace("element.value = "+element.value);
+			_logger.logSimple("element = "+element);
+			_logger.logSimple("element.value = "+element.value);
 			return element;
 		}
 		
@@ -75,7 +80,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 //		[Factory]
 		public function createAnotherElement():MyAnotherElement
 		{
-			trace(classNameToString + " : createAnotherElement();");
+			_logger.log(this, "createAnotherElement();");
 			
 			return new MyAnotherElement();
 		}
@@ -83,10 +88,7 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		//----------------------------------
 		//  private methods
 		//----------------------------------
-		private function get classNameToString():String
-		{
-			return "[ " + getQualifiedClassName(this) + " ]";
-		}
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Logs

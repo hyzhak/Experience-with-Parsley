@@ -1,22 +1,22 @@
-package org.hyzhak.experiments.parsley01.lifecycle
+package org.hyzhak.experiments.parsley01.utils
 {
+	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 	
-	import org.hyzhak.experiments.parsley01.utils.IMyLogger;
-	import org.hyzhak.experiments.parsley01.utils.MyBaseLogger;
+	import org.hyzhak.experiments.parsley01.lifecycle.IMyElement;
 	import org.spicefactory.lib.reflect.types.Void;
 	
 	/**
 	 * 
 	 * @project	Experiment Parsley 01
 	 * 
-	 * @data	Oct 7, 2011 / 11:37:52 AM
+	 * @data	Oct 8, 2011 / 11:57:10 PM
 	 * 
 	 * @author	Eugene Krevents aka Hyzhak 
 	 * 
 	 */
 	
-	public class MyUser
+	public class MyBaseLogger implements IMyLogger
 	{
 		
 		//----------------------------------
@@ -26,20 +26,15 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		//----------------------------------
 		//  params 
 		//----------------------------------
-		[Inject]
-		public var firstElement:IMyElement;
-		
-		[Inject]
-		public var secondElement:IMyElement;
-		
-		private var _logger:IMyLogger = MyBaseLogger.getLogger();
+		private static var _instance:IMyLogger;
 		//----------------------------------
 		//  constructor 
 		//----------------------------------
 		
-		public function MyUser()
+		public function MyBaseLogger()
 		{
 		}
+		
 		
 		//--------------------------------------------------------------------------
 		//
@@ -62,21 +57,37 @@ package org.hyzhak.experiments.parsley01.lifecycle
 		//  Methods
 		//
 		//--------------------------------------------------------------------------
-		[Init]
-		public function init():void
+		public static function getLogger():IMyLogger
 		{
-			_logger.log(this, "init();");
-			_logger.logSimple("first element = "+firstElement);
-			_logger.logSimple("first element.value = "+firstElement.value);
-			_logger.logSimple("first element.anotherElement = "+firstElement.anotherElement);
-			
-			_logger.logSimple("second element = "+firstElement);
-			_logger.logSimple("second element.value = "+firstElement.value);
+			if(_instance == null)
+			{
+				_instance = new MyBaseLogger();
+			}
+			return _instance;
 		}
+		
+		public function log(sender:Object, message:String):void
+		{
+			trace("... ["+getQualifiedClassName(sender)+"] : " + message);
+		}
+		
+		public function logSimple(message:String):void
+		{
+			trace("... " + message);
+		}
+		
+		
+		
+		public function logCreateClass(sender:Object):void
+		{
+			trace("... CREATE ["+getQualifiedClassName(sender) + "]");
+		}
+		
+		
 		//----------------------------------
 		//  private methods
 		//----------------------------------
-
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Logs
