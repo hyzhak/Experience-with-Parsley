@@ -1,6 +1,6 @@
-Project that created for testing all features from Parsley Framework
+_Project that created for testing all features from "Parsley Framework":http://www.spicefactory.org/parsley/_
 
-TODO:
+h1. TODO:
 
 # Dynamic View Wiring;
 # Building Modular Applications
