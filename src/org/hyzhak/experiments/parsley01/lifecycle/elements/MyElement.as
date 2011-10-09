@@ -84,7 +84,15 @@ package org.hyzhak.experiments.parsley01.lifecycle.elements
 		//  Methods
 		//
 		//--------------------------------------------------------------------------
+		public function init():void
+		{
+			
+		}
 		
+		public function destroy():void
+		{
+			
+		}
 		//----------------------------------
 		//  private methods
 		//----------------------------------
