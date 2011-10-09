@@ -51,6 +51,12 @@ package org.hyzhak.experiments.parsley01.lifecycle.elements
 			_strValue = value;
 		}
 
+		/**
+		 * Check here is any injections worked in instance created by factory
+		 *  
+		 * @return 
+		 * 
+		 */
 		[Inject]
 		public function get anotherElement():MyAnotherElement
 		{

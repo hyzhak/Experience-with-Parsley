@@ -7,6 +7,10 @@ package org.hyzhak.experiments.parsley01.lifecycle
 	import org.spicefactory.lib.reflect.types.Void;
 	
 	/**
+	 * Example for "7.2 Using Factories" 
+	 * http://www.spicefactory.org/parsley/docs/2.4/manual/lifecycle.php#factories
+	 * 
+	 * This class target for injection IMyElement and MyAnotherElement.
 	 * 
 	 * @project	Experiment Parsley 01
 	 * 

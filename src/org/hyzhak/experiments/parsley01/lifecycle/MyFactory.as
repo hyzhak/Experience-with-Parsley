@@ -7,7 +7,8 @@ package org.hyzhak.experiments.parsley01.lifecycle
 	import org.hyzhak.experiments.parsley01.utils.MyBaseLogger;
 	
 	/**
-	 * Example for "7.2 Using Factories" http://www.spicefactory.org/parsley/docs/2.4/manual/lifecycle.php#factories
+	 * Example for "7.2 Using Factories" 
+	 * http://www.spicefactory.org/parsley/docs/2.4/manual/lifecycle.php#factories
 	 * 
 	 * @project	Experiment Parsley 01
 	 * 

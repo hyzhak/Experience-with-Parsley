@@ -67,9 +67,12 @@ package org.hyzhak.experiments.parsley01
 //				.config(ActionScriptConfig.forClass(MyConfigForBindings))
 //				.config(XmlConfig.forFile("../assets/config.xml"))
 				
-				//6 
+				//6 Messaging
 //				.config(XmlConfig.forFile("../assets/messaging-config.xml"))
+				
+				//7 Object Lifecycle
 				.config(XmlConfig.forFile("../assets/object-lifecycle-config.xml"))
+				
 //				.object(new InjectionContainer())
 				.build();
 			
